@@ -8,8 +8,8 @@
     "url": "https://errorna.me"
   },
   "license": "MIT",
-  "main": "build/index.js",
-  "typings": "build/index.d.ts",
+  "main": "client/index.js",
+  "typings": "client/index.d.ts",
   "files": [
     "build"
   ],
