@@ -22,7 +22,7 @@
     "@prisma/shared": "git+https://github.com/Marcatech/pmt-shared.git"
     },
   "peerDependencies": {
-    "prisma": "^2.21.2"
+    "prisma": "^5.10.1"
   },
   "devDependencies": {
     "@types/node": "^14.0.23",
