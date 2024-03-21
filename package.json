@@ -1,6 +1,6 @@
 {
-  "name": "@prisma-multi-tenant/client",
-  "version": "2.5.0",
+  "name": "prisma-multi-tenant-client-updated",
+  "version": "2.5.1",
   "description": "Shared methods and constants for prisma-multi-tenant",
   "author": {
     "name": "Thibaud Courtoison",
@@ -8,8 +8,8 @@
     "url": "https://errorna.me"
   },
   "license": "MIT",
-  "main": "client/index.js",
-  "typings": "client/index.d.ts",
+  "main": "build/client/src/index.js",
+  "typings": "build/client/src/index.d.ts",
   "files": [
     "build"
   ],
@@ -19,7 +19,7 @@
     "prettier": "prettier \"src/**/*.ts\" --check"
   },
   "dependencies": {
-    "@prisma/shared": "git+https://github.com/Marcatech/pmt-shared.git"
+    "prisma-multi-tenant-shared-updated": "^2.5.1"
     },
   "peerDependencies": {
     "prisma": "^5.10.1"
