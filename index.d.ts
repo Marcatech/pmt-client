@@ -1,4 +1,4 @@
-import { Management } from '../../shared/src';
+import { Management } from 'prisma-multi-tenant-shared-updated';
 interface MultiTenantOptions {
     useManagement?: boolean;
     tenantOptions?: any;
