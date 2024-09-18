@@ -111,7 +111,9 @@ class MultiTenant<PrismaClient extends { $disconnect: () => Promise<void> }> {
     tenant: { name: string; url: string },
     options?: any
   ): Promise<PrismaClient & WithMeta> {
-    process.env.DATABASE_URL = tenant.url
+    const isFullUrl = tenant.url.startsWith('postgresql://');
+    const databaseUrl = isFullUrl ? tenant.url : `postgresql://${process.env.POSTGRES_USER}:${process.env.POSTGRES_PASSWORD}@${process.env.POSTGRES_HOST}:${process.env.POSTGRES_PORT}/${process.env.POSTGRES_DB}?schema=${tenant.url}`;
+    process.env.DATABASE_URL = databaseUrl
     const client = new this.ClientTenant({ ...this.options.tenantOptions, ...options })
 
     client._meta = {

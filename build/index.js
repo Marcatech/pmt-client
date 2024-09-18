@@ -70,7 +70,9 @@ class MultiTenant {
         return this.directGet(tenant, options);
     }
     async directGet(tenant, options) {
-        process.env.DATABASE_URL = tenant.url;
+        const isFullUrl = tenant.url.startsWith('postgresql://');
+        const databaseUrl = isFullUrl ? tenant.url : `postgresql://${process.env.POSTGRES_USER}:${process.env.POSTGRES_PASSWORD}@${process.env.POSTGRES_HOST}:${process.env.POSTGRES_PORT}/${process.env.POSTGRES_DB}?schema=${tenant.url}`;
+        process.env.DATABASE_URL = databaseUrl;
         const client = new this.ClientTenant(Object.assign(Object.assign({}, this.options.tenantOptions), options));
         client._meta = {
             name: tenant.name,
