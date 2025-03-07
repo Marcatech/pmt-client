@@ -58,8 +58,6 @@ class MultiTenant {
         return true;
     }
     async get(name, options) {
-        if (this.tenants[name])
-            return this.tenants[name];
         if (!this.management) {
             throw new Error('Cannot use .get(name) on an unknown tenant with `useManagement: false`');
         }

@@ -92,8 +92,9 @@ class MultiTenant<PrismaClient extends { $disconnect: () => Promise<void> }> {
   }
 
   async get(name: string, options?: any): Promise<PrismaClient & WithMeta> {
-    if (this.tenants[name]) return this.tenants[name]
-
+    // Always use direct get
+    // if (this.tenants[name]) return this.tenants[name]
+    
     if (!this.management) {
       throw new Error('Cannot use .get(name) on an unknown tenant with `useManagement: false`')
     }
